@@ -1,12 +1,11 @@
-<html ng-app="pantryItemApp">
+<!doctype html>
+<html lang="en" ng-app="pantryItemApp">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>AngularJS Pantry Manager</title>
-  
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-<script data-require="angular.js@*" data-semver="1.2.13" src="http://code.angularjs.org/1.2.13/angular.js"></script>
-  <script data-require="angular-animate@*" data-semver="1.2.13" src="http://code.angularjs.org/1.2.13/angular-animate.js"></script>
-  <script src="controllers.js"></script>
+  <meta charset="utf-8">
+  <title>App</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="bower_components/angular/angular.js"></script>
 </head>
 <body ng-controller="ItemManagerCtrl">
 
@@ -43,6 +42,6 @@
       </div>
     </div>
   </div>
-
+<pre>{{phones | filter:query | orderBy:orderProp | json}}</pre>
 </body>
 </html>
