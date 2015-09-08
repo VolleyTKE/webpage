@@ -1,0 +1,48 @@
+<html ng-app="pantryItemApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>AngularJS Pantry Manager</title>
+  
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<script data-require="angular.js@*" data-semver="1.2.13" src="http://code.angularjs.org/1.2.13/angular.js"></script>
+  <script data-require="angular-animate@*" data-semver="1.2.13" src="http://code.angularjs.org/1.2.13/angular-animate.js"></script>
+  <script src="controllers.js"></script>
+</head>
+<body ng-controller="ItemManagerCtrl">
+
+    <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <!--Sidebar content-->
+
+        Search: <input ng-model="query">
+		Sort by:
+<select ng-model="orderProp">
+  <option value="itemName">Alphabetical</option>
+  <option value="company">Company</option>
+  <option value="dateEntered">Date Entered</option>
+  <!--<option value="expirationDate">Expiration Date</option>-->
+</select>
+
+      </div>
+      <div class="col-md-10">
+        <!--Body content-->
+
+		<ul class="items">
+    <li ng-repeat="item in items | filter:query | orderBy:orderProp">
+      <span>{{item.itemName}}</span>
+      <p>{{item.upc}}</p>
+	  <p>{{item.company}}</p>
+	  <p>{{item.dateEntered}}</p>
+    </li>
+  </ul>
+  <p>Total number of items: {{items.length}}</p>
+  <p>Hello, {{name}}!</p>
+		
+        
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
