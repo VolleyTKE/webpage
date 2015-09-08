@@ -1,40 +1,60 @@
 <!doctype html>
-<html lang="en" ng-app="pantryItemApp">
+<html lang="en" ng-app="App">
 <head>
   <meta charset="utf-8">
   <title>App</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="css/app.css">
+  <link href='./css/style.css' rel="stylesheet" type="text/css"></link>
+<link href='./css/css/font-awesome.css' rel="stylesheet" type="text/css"></link>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>  
   <script src="bower_components/angular/angular.js"></script>
+  <script src="/app/js/controllers.js"></script>
 </head>
 <body ng-controller="ItemManagerCtrl">
 
+	
+	
+    <h2>Pantry Item Manager</h2>
+	
+	<div>
+	<iframe id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" width="550" height="400" src="https://prezi.com/embed/jtap5vxmk4yq/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZS2czc0xFeEJRNXppWEVmbDIxREZMOHBrRzVpU2M&amp;landing_sign=l6gfBYLxz54Dvx7QEuTZwMfi6HF3zkzwOitAXLY9Lio"></iframe>
+	</div>
+	<p></p>
     <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-2">
+    <div>
+      <div>
         <!--Sidebar content-->
 
         Search: <input ng-model="query">
 		Sort by:
-<select ng-model="orderProp">
-  <option value="itemName">Alphabetical</option>
-  <option value="company">Company</option>
-  <option value="dateEntered">Date Entered</option>
-  <!--<option value="expirationDate">Expiration Date</option>-->
-</select>
+		<select ng-model="orderProp">
+		  <option value="itemName">Alphabetical</option>
+		  <option value="company">Company</option>
+		  <option value="dateEntered">Date Entered</option>
+		  <!--<option value="expirationDate">Expiration Date</option>-->
+		</select>
 
       </div>
-      <div class="col-md-10">
+      <div>
         <!--Body content-->
 
-		<ul class="items">
-    <li ng-repeat="item in items | filter:query | orderBy:orderProp">
-      <span>{{item.itemName}}</span>
-      <p>{{item.upc}}</p>
-	  <p>{{item.company}}</p>
-	  <p>{{item.dateEntered}}</p>
-    </li>
-  </ul>
+		<table>
+		<tr>
+		<th>Item ID</th>
+		<th>Name</th>
+		<th>UPC</th>
+		<th>Company</th>
+		<th>Date Entered</th>
+		<th>Expiration Date</th>
+    <tr ng-repeat="item in items | filter:query | orderBy:orderProp">
+	  <td>{{item.itemId}}</td>
+      <td>{{item.itemName}}</td>
+      <td>{{item.upc}}</td>
+	  <td>{{item.company}}</td>
+	  <td>{{item.dateEntered}}</td>
+	  <td>{{item.expirationDate}}</td>
+    </tr>
+  </table>
   <p>Total number of items: {{items.length}}</p>
   <p>Hello, {{name}}!</p>
 		
@@ -42,6 +62,6 @@
       </div>
     </div>
   </div>
-<pre>{{phones | filter:query | orderBy:orderProp | json}}</pre>
+<pre>{{items | filter:query | orderBy:orderProp | json}}</pre>
 </body>
 </html>
