@@ -23,7 +23,6 @@
     <div class="container-fluid">
     <div>
       <div>
-        <!--Sidebar content-->
 
         Search: <input ng-model="query">
 		Sort by:
@@ -35,9 +34,14 @@
 		</select>
 
       </div>
-      <div>
-        <!--Body content-->
+		<div>
 
+		<div>
+			Upc: <input type="text" ng-model="upc"/>
+			Item Name: <input type="text" ng-model="itemName"/>
+			Company: <input type="text" ng-model="company"/>
+			<button ng-click="addItem()" class="btn-panel-big">Add New Item</button></td>
+		</div>
 		<table>
 		<tr>
 		<th>Item ID</th>
@@ -46,18 +50,20 @@
 		<th>Company</th>
 		<th>Date Entered</th>
 		<th>Expiration Date</th>
-    <tr ng-repeat="item in items | filter:query | orderBy:orderProp">
-	  <td>{{item.itemId}}</td>
-      <td>{{item.itemName}}</td>
-      <td>{{item.upc}}</td>
-	  <td>{{item.company}}</td>
-	  <td>{{item.dateEntered}}</td>
-	  <td>{{item.expirationDate}}</td>
-    </tr>
-  </table>
-  <p>Total number of items: {{items.length}}</p>
-  <p>Hello, {{name}}!</p>
-		
+		</tr>
+		<tr ng-repeat="item in items | filter:query | orderBy:orderProp">
+			<td>{{item.itemId}}</td>
+			<td>{{item.itemName}}</td>
+			<td>{{item.upc}}</td>
+			<td>{{item.company}}</td>
+			<td>{{item.dateEntered}}</td>
+			<td>{{item.expirationDate}}</td>
+		</tr>
+		</table>
+		<div>
+			<p>Total number of items: {{items.length}}</p>
+			<p>Hello, {{name}}!</p>
+		</div>
         
       </div>
     </div>
